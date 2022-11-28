@@ -94,7 +94,7 @@ function FilesContent() {
         extensions={[StreamLanguage.define(yamlSupport)]}
         readOnly
         value={
-          selectedFile?.base64Content ? atob(selectedFile.base64Content) : ''
+          selectedFile?.base64Content ? Buffer.from(selectedFile.base64Content, 'base64').toString('utf8'): ''
         }
       />
     </DryRunResultsSplitView>
